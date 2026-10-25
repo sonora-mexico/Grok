@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <style>
+    @font-face {
+      font-family: "Cormorant Garamond";
+      src: url("fonts/CormorantGaramond-700.ttf") format("truetype");
+      font-weight: 700;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: "Outfit";
+      src: url("fonts/Outfit-400.ttf") format("truetype");
+      font-weight: 400;
+      font-style: normal;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body {
+      width: 1200px;
+      height: 630px;
+      overflow: hidden;
+      background: #1A1612;
+    }
+    .stage {
+      position: relative;
+      width: 1200px;
+      height: 630px;
+      overflow: hidden;
+      background:
+        radial-gradient(ellipse 640px 480px at 50% 42%, rgba(196, 161, 90, 0.20), transparent 68%),
+        radial-gradient(ellipse 420px 360px at 86% 78%, rgba(196, 107, 58, 0.14), transparent 70%),
+        #1A1612;
+    }
+    .frame {
+      position: absolute;
+      inset: 22px;
+      border: 1px solid rgba(196, 161, 90, 0.32);
+      pointer-events: none;
+    }
+    .grain {
+      position: absolute;
+      inset: 0;
+      width: 1200px;
+      height: 630px;
+      opacity: 0.22;
+      mix-blend-mode: overlay;
+      pointer-events: none;
+    }
+    .sprockets {
+      position: absolute;
+      left: 36px;
+      top: 78px;
+      bottom: 78px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 8px;
+    }
+    .sprockets span {
+      display: block;
+      width: 8px;
+      height: 10px;
+      border-radius: 1px;
+      background: #C46B3A;
+      opacity: 0.55;
+    }
+    .bay {
+      position: absolute;
+      left: 64px;
+      top: 176px;
+      width: 188px;
+    }
+    .monitor {
+      width: 188px;
+      height: 118px;
+      border: 1.5px solid rgba(243, 234, 215, 0.38);
+      background: linear-gradient(180deg, rgba(243, 234, 215, 0.06), rgba(26, 22, 18, 0.15));
+      box-shadow: 0 0 36px rgba(196, 161, 90, 0.14);
+      position: relative;
+    }
+    .neck {
+      width: 8px;
+      height: 16px;
+      margin: 0 auto;
+      background: rgba(196, 161, 90, 0.62);
+    }
+    .stand {
+      width: 64px;
+      height: 6px;
+      margin: 0 auto;
+      background: #C4A15A;
+      opacity: 0.75;
+    }
+    .window {
+      position: absolute;
+      right: 70px;
+      top: 132px;
+      width: 156px;
+      height: 268px;
+      border: 1.5px solid rgba(196, 107, 58, 0.78);
+      background: linear-gradient(180deg, #2a241c 0%, #3c3328 46%, #1A1612 100%);
+      overflow: hidden;
+    }
+    .lockup {
+      position: absolute;
+      left: 250px;
+      right: 250px;
+      top: 0;
+      bottom: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+    }
+    .mark {
+      width: 64px;
+      height: 64px;
+      margin-bottom: 26px;
+      display: block;
+    }
+    h1 {
+      font-family: "Cormorant Garamond", "Liberation Serif", serif;
+      font-weight: 700;
+      font-size: 104px;
+      line-height: 0.78;
+      letter-spacing: 0.045em;
+      text-align: center;
+      color: #F3EAD7;
+    }
+    h1 span { display: block; }
+    h1 span + span { margin-top: 10px; }
+    .rule {
+      width: 52px;
+      height: 1px;
+      background: #C4A15A;
+      margin: 28px 0 16px;
+    }
+    .niche {
+      font-family: Outfit, "Liberation Sans", sans-serif;
+      font-weight: 400;
+      font-size: 18px;
+      letter-spacing: 0.14em;
+      color: #F3EAD7;
+      opacity: 0.86;
+    }
+  </style>
+</head>
+<body>
+  <div class="stage">
+    <svg class="grain" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <filter id="n">
+        <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch"/>
+        <feColorMatrix type="saturate" values="0"/>
+      </filter>
+      <rect width="100%" height="100%" filter="url(#n)"/>
+    </svg>
+
+    <div class="sprockets" aria-hidden="true">
+      <span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span>
+    </div>
+
+    <div class="bay" aria-hidden="true">
+      <div class="monitor">
+        <svg viewBox="0 0 188 118" width="188" height="118" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 72 C 30 72, 38 42, 54 42 S 76 90, 96 74 S 124 38, 146 54 S 168 86, 176 62"
+                fill="none" stroke="#C4A15A" stroke-width="1.6"/>
+          <path d="M16 96 H172" stroke="#6F8F78" stroke-width="1" opacity="0.7"/>
+        </svg>
+      </div>
+      <div class="neck"></div>
+      <div class="stand"></div>
+    </div>
+
+    <div class="window" aria-hidden="true">
+      <svg viewBox="0 0 156 268" width="156" height="268" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="112" cy="52" r="9" fill="#C4A15A"/>
+        <path d="M0 168 L26 146 L48 158 L74 128 L104 156 L156 136 L156 268 L0 268 Z" fill="#6F8F78"/>
+        <path d="M0 198 L46 176 L78 190 L156 164 L156 268 L0 268 Z" fill="#1A1612" opacity="0.55"/>
+        <path d="M0 214 H156" stroke="#F3EAD7" stroke-width="1" opacity="0.25"/>
+      </svg>
+    </div>
+
+    <div class="lockup">
+      <svg class="mark" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path fill="#C46B3A" fill-rule="evenodd" d="M4 3h24v24H4V3zm5 4v14h14V7H9z"/>
+        <rect x="10.5" y="8.5" width="11" height="8" fill="#F3EAD7"/>
+        <rect x="10.5" y="17.5" width="11" height="2" fill="#C4A15A"/>
+      </svg>
+      <h1>
+        <span>SALA</span>
+        <span>VIDEOIA</span>
+      </h1>
+      <div class="rule"></div>
+      <p class="niche">Desarrollo personal y motivación</p>
+    </div>
+
+    <div class="frame"></div>
+  </div>
+</body>
+</html>
